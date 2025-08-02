@@ -5,26 +5,63 @@
 This section describes the technical specifications and communication protocols used by Sapphichat.
 
 ### Overview
+Sapphichat is a very simple and understandable protocol designed for secure and efficient messaging.
 
-Sapphichat uses a secure, efficient messaging protocol designed for:
+SapphiTalk is the base of the protocol, it implements the core features of Sapphichat, while SapphiTalk+ extends it with additional functionalities like Federation.
 
-- **Security** : End-to-end encryption for all communications
-- **Performance** : Optimized for low latency and high throughput
-- **Reliability** : Built-in message delivery guarantees
-- **Scalability** : Designed to handle large numbers of concurrent users
+| Feature                | SapphiTalk | SapphiTalk+ |
+|------------------------|------------|-------------|
+| Core Messaging         | ✅         | ✅          |
+| Presence Indicators    | ✅         | ✅          |
+| Message History        | ✅         | ✅          |
+| End-to-End Encryption  | ✅         | ✅          |
+| Socket.IO Support      | ✅         | ✅          |
+| Federation Support     | ❌         | ✅          |
 
-### Protocol Specifications
+We have choosen to make a difference between SapphiTalk and SapphiTalk+ to allow for a simpler implementation of the core features while providing an option for advanced users to utilize federation capabilities.
 
-*This section is under development. Technical specifications will be added soon.*
+Not every users needs federation, and SapphiTalk is designed to be easy to deploy and use without it.
 
 ### Key Features
 
+- Simple to deploy a server and connect clients 
 - Real-time messaging
 - Group chat support
 - File sharing capabilities
 - Presence indicators
 - Message history synchronization
+- End-to-end encryption
+- Support for multiple platforms (CLI, web, mobile, desktop)
+- Easy to update, backup and restore data
+
+### User identification
+
+- Users are identified by their unique usernames, which are case-sensitive. Usernames can contain only letters, in minuscule only, and must be at least 1 characters long and max 16 characters long. Usernames are not allowed to contain spaces or special characters.
+- An account can have a display name, which is used to identify the user in the chat. The display name can be changed at any time and is not required to be unique. It can contain letters, numbers, spaces, and special characters.
+- Passwords are mandatory, and must be securely stored and hashed on the server side. Passwords must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+
+### Identification Format
+
+- Users are identified by the following format:
+```
+@username@instance.tld
+```
+Where `username` is the username of the user and `instance` is the server instance (e.g., `sapphichat.example.com`).
+
+- Groups are identified by the following format:
+```
+#groupname@instance.tld
+```
+Where `groupname` is the name of the group and `instance` is the server instance (e.g., `sapphichat.example.com`).
+
+- DMs (Direct Messages) are identified by the following format:
+```
+@username1@instance1.tld > @username2@instance2.tld
+```
+Where `username1` and `username2` are the usernames of the users and `instance1` and `instance2` are the server instances (e.g., `sapphichat.example.com`).
+
+The order of the usernames in the DM identifier does not matter, as it is a direct message between two users.
 
 ### API Documentation
 
-*API documentation will be available in future releases.*
+Continue reading on [endpoints](endpoints.md) for detailed API endpoints and usage examples.
