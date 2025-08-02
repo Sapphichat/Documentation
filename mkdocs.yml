@@ -31,7 +31,8 @@ nav:
     - ./protocol/endpoints.md
   - License: license.md
   - Contact: contact.md
-  - Terms of Service: terms.md
-  - Privacy Policy: privacy.md
+  - Legal:
+    - ./legal/terms.md
+    - ./legal/privacy.md
 markdown_extensions:
   - admonition
