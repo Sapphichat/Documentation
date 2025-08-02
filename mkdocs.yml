@@ -1,6 +1,8 @@
 site_name: Sapphichat
 theme:
   name: material
+  favicon: img/favicon.ico
+  logo: img/Sapphichat-logo.png
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
@@ -31,3 +33,5 @@ nav:
   - Contact: contact.md
   - Terms of Service: terms.md
   - Privacy Policy: privacy.md
+markdown_extensions:
+  - admonition
