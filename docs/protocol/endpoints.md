@@ -4,48 +4,25 @@ This section describes the endpoints used in the SapphiTalk protocol for communi
 
 These endpoints are used for various operations such as sending messages, managing groups, handling user authentication and more.
 
-### Endpoints Overview
+### Base API Endpoint
 
-#### Base API Endpoint
-- **GET https://sapphichat.sapphichat.org/api**
-    - This is the base endpoint for accessing the SapphiChat API for the instance `sapphichat.sapphichat.org`.
-    - It provides a list of information about the available endpoints and their functionalities.
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|---------|-------------|---------------|-------|
+| <span class="endpoint">/api</span> | <span class="method-badge method-get">GET</span> | Base endpoint providing API information and available protocols | <span class="auth-optional">❌</span> | Returns API version and implemented protocols |
 
-    - Response:
-        - `version`: The version of the API.
-        - `implemented_protocols`: A list of protocols implemented by the server (for example, `sapphitalk`, `sapphitalkplus`, `socketio`).
+### Authentication Endpoints
 
-#### Authentication Endpoints
-- **POST /auth/register**: Register a new user.
-    - Request Body:
-        - `username`: The desired username for the new user. (mandatory)
-        - `displayName`: The display name for the new user. (mandatory)
-        - `password`: The password for the new user. (mandatory)
-        - `tos`: A boolean indicating whether the user agrees to the terms of service. (mandatory, must be true)
-    - Response:
-        - `success`: A boolean indicating whether the registration was successful.
-        - `message`: Confirmation of successful registration.
-    - Error Response:
-        - `success`: A boolean indicating failure.
-        - `error`: An error message if registration fails.
-- **POST /auth/login**: Authenticate a user and return a session token.
-    - Request Body:
-        - `username`: The username of the user. (@username@instance.tld) (mandatory)
-        - `password`: The password of the user. (mandatory)
-    - Response:
-        - `token`: The session token for the authenticated user.
-    - Error Response:
-        - `success`: A boolean indicating failure.
-        - `error`: An error message if authentication fails.
-- **GET /account/me**: Retrieve the authenticated user's account information.
-    - Headers:
-        - `Authorization`: Bearer token for authentication.
-    - Response:
-        - `success`: A boolean indicating whether the request was successful.
-        - `username`: The username of the authenticated user.
-        - `displayName`: The display name of the authenticated user.
-        - `createdAt`: The timestamp of when the account was created.
-    - Error Response:
-        - `success`: A boolean indicating failure.
-        - `error`: An error message if the request fails.
-#### Messaging Endpoints
+| Endpoint | Method | Description | Auth Required | Request Parameters | Notes |
+|----------|---------|-------------|---------------|-------------------|-------|
+| <span class="endpoint">/account/register</span> | <span class="method-badge method-post">POST</span> | Register a new user account | <span class="auth-optional">❌</span> | <span class="param-required">`username` ✅</span>, <span class="param-required">`displayName` ✅</span>, <span class="param-required">`password` ✅</span>, <span class="param-required">`tos` ✅</span> | Terms of service must be true |
+| <span class="endpoint">/account/login</span> | <span class="method-badge method-post">POST</span> | Authenticate user and get session token | <span class="auth-optional">❌</span> | <span class="param-required">`username` ✅</span>, <span class="param-required">`password` ✅</span> | Username format: @username@instance.tld |
+| <span class="endpoint">/account/me</span> | <span class="method-badge method-get">GET</span> | Get authenticated user's account info | <span class="auth-required">✅</span> | - | Returns identity in @username@instance.tld format |
+| <span class="endpoint">/account/logout</span> | <span class="method-badge method-post">POST</span> | Log out authenticated user | <span class="auth-required">✅</span> | - | Invalidates session token |
+| <span class="endpoint">/account/me</span> | <span class="method-badge method-delete">DELETE</span> | Delete user account | <span class="auth-required">✅</span> | <span class="param-required">`password` ✅</span> | Permanent account deletion |
+
+### Messaging Endpoints
+
+| Endpoint | Method | Description | Auth Required | Request Parameters | Notes |
+|----------|---------|-------------|---------------|-------------------|-------|
+| <span class="endpoint">/messages/create/dm/:identity</span> | <span class="method-badge method-post">POST</span> | Create direct message conversation | <span class="auth-required">✅</span> | <span class="param-required">`identity` (URL param) ✅</span> | Identity format: @username@instance.tld |
+| <span class="endpoint">/messages/create/group</span> | <span class="method-badge method-post">POST</span> | Create group conversation | <span class="auth-required">✅</span> | <span class="param-required">`name` ✅</span>, <span class="param-optional">`description` ❌</span>, <span class="param-optional">`members` ❌</span> | Members as array of identities |
