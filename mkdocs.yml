@@ -29,6 +29,7 @@ nav:
   - Protocol: 
     - ./protocol/index.md
     - ./protocol/endpoints.md
+    - ./protocol/error-codes.md
   - License: license.md
   - Contact: contact.md
   - Legal:
