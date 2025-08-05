@@ -28,7 +28,12 @@ nav:
   - Home: index.md
   - Protocol: 
     - ./protocol/index.md
-    - ./protocol/endpoints.md
+    - Endpoints:
+      - ./protocol/endpoints/index.md
+      - ./protocol/endpoints/base.md
+      - ./protocol/endpoints/authentication.md
+      - ./protocol/endpoints/conversations.md
+      - ./protocol/endpoints/messages.md
     - ./protocol/error-codes.md
   - License: license.md
   - Contact: contact.md

@@ -64,4 +64,4 @@ The order of the usernames in the DM identifier does not matter, as it is a dire
 
 ### API Documentation
 
-Continue reading on [endpoints](endpoints.md) for detailed API endpoints and usage examples.
+Continue reading on [endpoints](./endpoints/index.md) for detailed API endpoints and usage examples.
