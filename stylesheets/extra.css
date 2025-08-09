@@ -1,0 +1,54 @@
+/* HTTP Method Classes with Colors */
+.method-get code, .method-get {
+    background-color: #28a745 !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.method-post code, .method-post {
+    background-color: #007bff !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.method-put code, .method-put {
+    background-color: #fd7e14 !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.method-patch code, .method-patch {
+    background-color: #6f42c1 !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.method-delete code, .method-delete {
+    background-color: #dc3545 !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+}
+
+.method-any code, .method-any {
+    background-color: #c907ff !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 0.85em;
+}

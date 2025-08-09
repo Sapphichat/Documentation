@@ -13,7 +13,7 @@
         <link rel="next" href="protocol/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -43,6 +43,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
     
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -86,8 +88,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="." title="Sapphichat" class="md-header__button md-logo" aria-label="Sapphichat" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="img/Sapphichat-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -276,6 +277,26 @@
   
 
       
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="legal/terms/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -300,8 +321,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="." title="Sapphichat" class="md-nav__button md-logo" aria-label="Sapphichat" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="img/Sapphichat-logo.png" alt="logo">
 
     </a>
     Sapphichat
@@ -366,11 +386,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#our-goal" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Our goal
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sapphichat-software-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sapphichat software structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sapphichat software structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-planned-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active / Planned Modules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obsolete-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obsolete Modules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -454,13 +507,179 @@
   
   
   
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Endpoints
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Endpoints
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="protocol/endpoints/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Endpoints
+    SapphiTalk REST API Endpoints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocol/endpoints/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Base API Endpoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocol/endpoints/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Account Endpoints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocol/endpoints/conversations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conversations Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocol/endpoints/messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Messages Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="protocol/error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error codes
     
   </span>
   
@@ -522,6 +741,102 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Legal
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Legal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="legal/terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Responsibility Disclaimer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="legal/privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Privacy Policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -549,11 +864,44 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
+  <a href="#our-goal" class="md-nav__link">
     <span class="md-ellipsis">
-      Introduction
+      Our goal
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sapphichat-software-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sapphichat software structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sapphichat software structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-planned-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active / Planned Modules
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#obsolete-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Obsolete Modules
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -573,15 +921,93 @@
 
 
 
-<h1 id="welcome-to-the-sapphichat-documentation">Welcome to the Sapphichat documentation!</h1>
+<h1 id="welcome-to-the-sapphichat-documentation">🏳️‍🌈 Welcome to the Sapphichat documentation!</h1>
+<p><img src="/img/Sapphichat-logo.png" alt="Sapphichat logo" width="100" style="border-radius: 20px;"/></p>
+<p>Sapphichat is a modern communication platform (that doesn't exist yet...) designed for secure and efficient messaging.</p>
+<div class="admonition danger">
+<p class="admonition-title">🚨 EU Chat Control Law</p>
+<p><strong>Are you scared by the new EU law about Chat Control? We are too. That's why we have started this project.</strong></p>
+<p>We sincerely believe that <strong>privacy is a fundamental human right</strong>, and we are committed to building a platform that respects and protects user privacy.</p>
+<p><strong>We will do everything we can to ensure that Sapphichat is a safe and secure communication tool for everyone. That's is a promise.</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Sapphichat is in work in process, we need your help!</p>
+<p>This documentation is a work in progress. If you find any issues or have suggestions, please contribute to the project on GitHub.
+This project is relatively new, and we are looking for contributors to help us improve it.</p>
+</div>
 <p>This documentation will help you understand how to use Sapphichat and SapphiTalk effectively.</p>
-<h2 id="introduction">Introduction</h2>
-<p>Sapphichat is an open-source communication platform designed for secure and efficient messaging. This documentation covers:</p>
-<ul>
-<li><strong>Protocol</strong> : Technical specifications and communication protocols</li>
-<li><strong>License</strong> : Legal information about usage rights and obligations</li>
-<li><strong>Contact</strong> : How to reach the development team and community</li>
-</ul>
+<h2 id="our-goal">Our goal</h2>
+<p>Not like Matrix, or other messaging protocols (where you need more than 4 or more docker containers to run it 💀), we want Sapphichat to be simple to deploy on a server, by running a single command and connect to the server with a client to configure it with a GUI, you can have access to a fully functional chat server with federation if you configure it to allow it.</p>
+<h2 id="sapphichat-software-structure">Sapphichat software structure</h2>
+<p>Our goal is to provide a complete chat solution, including:</p>
+<h3 id="active-planned-modules">Active / Planned Modules</h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Description</th>
+<th>Language / Technology</th>
+<th>Progress Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sapphichat-backend</td>
+<td>Implementation of SapphiTalk &amp; SapphiTalk+ protocols with SQLite and PostgreSQL support</td>
+<td>Node.JS, Express</td>
+<td>Thinking... 💭</td>
+</tr>
+<tr>
+<td>Sapphichat-CLI</td>
+<td>Command-line interface client for developers to test the protocol</td>
+<td>Node.JS or Python</td>
+<td>Thinking... 💭</td>
+</tr>
+<tr>
+<td>Sapphichat-web</td>
+<td>Web client for Sapphichat</td>
+<td>Node.JS, EJS and Express</td>
+<td>Thinking... 💭</td>
+</tr>
+<tr>
+<td>Sapphichat-iOS</td>
+<td>iOS client for Sapphichat</td>
+<td>Swift</td>
+<td>Thinking... 💭</td>
+</tr>
+<tr>
+<td>Sapphichat-Android</td>
+<td>Android client for Sapphichat</td>
+<td>Kotlin</td>
+<td>Thinking... 💭</td>
+</tr>
+</tbody>
+</table>
+<h3 id="obsolete-modules">Obsolete Modules</h3>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Description</th>
+<th>Language / Technology</th>
+<th>Progress Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sapphichat-backendv1</td>
+<td>Implementation of SapphiTalk with only SQLite support</td>
+<td>Node.JS</td>
+<td>Obsolete 🚫</td>
+</tr>
+<tr>
+<td>Sapphichat-iOSv1</td>
+<td>iOS client for Sapphichat written in Swift</td>
+<td>Swift</td>
+<td>Obsolete 🚫</td>
+</tr>
+</tbody>
+</table>
 
 
 

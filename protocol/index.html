@@ -15,7 +15,7 @@
         <link rel="next" href="endpoints/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../img/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.16">
     
     
@@ -45,6 +45,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -88,8 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href=".." title="Sapphichat" class="md-header__button md-logo" aria-label="Sapphichat" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../img/Sapphichat-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -278,6 +279,26 @@
   
 
       
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../legal/terms/" class="md-tabs__link">
+          
+  
+  
+  Legal
+
+        </a>
+      </li>
+    
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -302,8 +323,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="Sapphichat" class="md-nav__button md-logo" aria-label="Sapphichat" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+  <img src="../img/Sapphichat-logo.png" alt="logo">
 
     </a>
     Sapphichat
@@ -455,18 +475,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#protocol-specifications" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Protocol Specifications
+      Key Features
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#user-identification" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      User identification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identification Format
     </span>
   </a>
   
@@ -501,13 +530,179 @@
   
   
   
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Endpoints
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Endpoints
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="endpoints/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Endpoints
+    SapphiTalk REST API Endpoints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="endpoints/base/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Base API Endpoint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="endpoints/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Account Endpoints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="endpoints/conversations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Conversations Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="endpoints/messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Messages Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="error-codes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Error codes
     
   </span>
   
@@ -569,6 +764,102 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Legal
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Legal
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legal/terms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Responsibility Disclaimer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../legal/privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Privacy Policy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -615,18 +906,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#protocol-specifications" class="md-nav__link">
+  <a href="#key-features" class="md-nav__link">
     <span class="md-ellipsis">
-      Protocol Specifications
+      Key Features
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#key-features" class="md-nav__link">
+  <a href="#user-identification" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Features
+      User identification
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identification Format
     </span>
   </a>
   
@@ -666,25 +966,93 @@
 <h2 id="sapphichat-communication-protocol">Sapphichat Communication Protocol</h2>
 <p>This section describes the technical specifications and communication protocols used by Sapphichat.</p>
 <h3 id="overview">Overview</h3>
-<p>Sapphichat uses a secure, efficient messaging protocol designed for:</p>
-<ul>
-<li><strong>Security</strong> : End-to-end encryption for all communications</li>
-<li><strong>Performance</strong> : Optimized for low latency and high throughput</li>
-<li><strong>Reliability</strong> : Built-in message delivery guarantees</li>
-<li><strong>Scalability</strong> : Designed to handle large numbers of concurrent users</li>
-</ul>
-<h3 id="protocol-specifications">Protocol Specifications</h3>
-<p><em>This section is under development. Technical specifications will be added soon.</em></p>
+<p>Sapphichat is a very simple and understandable protocol designed for secure and efficient messaging.</p>
+<p>SapphiTalk is the base of the protocol, it implements the core features of Sapphichat, while SapphiTalk+ extends it with additional functionalities like Federation.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SapphiTalk</th>
+<th>SapphiTalk+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Core Messaging</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Presence Indicators</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Message History</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>End-to-End Encryption</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Socket.IO Support</td>
+<td>✅</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>Federation Support</td>
+<td>❌</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>We have choosen to make a difference between SapphiTalk and SapphiTalk+ to allow for a simpler implementation of the core features while providing an option for advanced users to utilize federation capabilities.</p>
+<p>Not every users needs federation, and SapphiTalk is designed to be easy to deploy and use without it.</p>
 <h3 id="key-features">Key Features</h3>
 <ul>
+<li>Simple to deploy a server and connect clients </li>
 <li>Real-time messaging</li>
 <li>Group chat support</li>
 <li>File sharing capabilities</li>
 <li>Presence indicators</li>
 <li>Message history synchronization</li>
+<li>End-to-end encryption</li>
+<li>Support for multiple platforms (CLI, web, mobile, desktop)</li>
+<li>Easy to update, backup and restore data</li>
 </ul>
+<h3 id="user-identification">User identification</h3>
+<ul>
+<li>Users are identified by their unique usernames, which are case-sensitive. Usernames can contain only letters, in minuscule only, and must be at least 1 characters long and max 16 characters long. Usernames are not allowed to contain spaces or special characters.</li>
+<li>An account can have a display name, which is used to identify the user in the chat. The display name can be changed at any time and is not required to be unique. It can contain letters, numbers, spaces, and special characters.</li>
+<li>Passwords are mandatory, and must be securely stored and hashed on the server side. Passwords must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.</li>
+</ul>
+<h3 id="identification-format">Identification Format</h3>
+<ul>
+<li>
+<p>Users are identified by the following format:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@username@instance.tld
+</code></pre></div>
+Where <code>username</code> is the username of the user and <code>instance</code> is the server instance (e.g., <code>sapphichat.example.com</code>).</p>
+</li>
+<li>
+<p>Groups are identified by the following format:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>#groupname@instance.tld
+</code></pre></div>
+Where <code>groupname</code> is the name of the group and <code>instance</code> is the server instance (e.g., <code>sapphichat.example.com</code>).</p>
+</li>
+<li>
+<p>DMs (Direct Messages) are identified by the following format:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@username1@instance1.tld &gt; @username2@instance2.tld
+</code></pre></div>
+Where <code>username1</code> and <code>username2</code> are the usernames of the users and <code>instance1</code> and <code>instance2</code> are the server instances (e.g., <code>sapphichat.example.com</code>).</p>
+</li>
+</ul>
+<p>The order of the usernames in the DM identifier does not matter, as it is a direct message between two users.</p>
 <h3 id="api-documentation">API Documentation</h3>
-<p><em>API documentation will be available in future releases.</em></p>
+<p>Continue reading on <a href="endpoints/">endpoints</a> for detailed API endpoints and usage examples.</p>
 
 
 
