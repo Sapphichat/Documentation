@@ -1,88 +1,170 @@
-# Gestion des Messages
+# Messages Management
 
-Les endpoints de messages permettent d'effectuer toutes les opérations CRUD (Create, Read, Update, Delete) sur les messages dans les conversations.
+Message endpoints allow performing all CRUD (Create, Read, Update, Delete) operations on messages within conversations.
 
-## Opérations sur les messages
+## Message Operations
 
-### Envoyer un message (Create)
+### Send Message (Create)
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/messages/send/:conversationId` | <span class="method-post">`POST`</span> | Envoyer un message dans une conversation | ✅ Oui | `content` | `conversationId` | Envoie un message dans la conversation spécifiée |
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/messages/send/:conversationId` | <span class="method-post">`POST`</span> | Send a message in a conversation | ✅ Yes | Sends a message to the specified conversation |
 
-**Paramètres d'URL :**
-- `conversationId` **(obligatoire)** - ID de la conversation
+**URL Example:**
+```
+POST https://instance.tld/api/messages/send/conv-123
+```
 
-**Paramètres du body :**
-- `content` **(obligatoire)** - Contenu du message à envoyer
+**URL Parameters:**
+- `conversationId` **(required)** - Conversation ID
 
-**Exemple de body :**
+**Request Body:**
 ```json
 {
-  "content": "Bonjour, comment allez-vous ?"
+  "content": "Hello, how are you?"
 }
 ```
 
-### Récupérer les messages (Read)
+**Required Parameters:**
+- `content` **(required)** - Message content to send
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/messages/:conversationId/:page` | <span class="method-get">`GET`</span> | Obtenir les messages d'une conversation | ✅ Oui | - | `conversationId`, `page` | Retourne la liste des messages avec pagination |
-
-**Paramètres d'URL :**
-- `conversationId` **(obligatoire)** - ID de la conversation
-- `page` **(obligatoire)** - Numéro de page pour la pagination
-
-**Système de pagination :**
-- La pagination commence à la page 1
-- Chaque page contient un nombre fixe de messages (défini par le serveur)
-- Les messages sont triés du plus récent au plus ancien
-
-### Modifier un message (Update)
-
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/messages/edit/:conversationId/:messageId` | <span class="method-put">`PUT`</span> | Modifier un message dans une conversation | ✅ Oui | `content` | `conversationId`, `messageId` | Modifie le message spécifié |
-
-**Paramètres d'URL :**
-- `conversationId` **(obligatoire)** - ID de la conversation
-- `messageId` **(obligatoire)** - ID du message à modifier
-
-**Paramètres du body :**
-- `content` **(obligatoire)** - Nouveau contenu du message
-
-**Exemple de body :**
+**Response Example:**
 ```json
 {
-  "content": "Message modifié"
+  "success": true,
+  "messageId": "msg-789",
+  "conversationId": "conv-123",
+  "content": "Hello, how are you?",
+  "author": "@username@instance.tld",
+  "timestamp": "2025-08-09T12:00:00Z"
 }
 ```
 
-### Supprimer un message (Delete)
+### Retrieve Messages (Read)
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/messages/delete/:conversationId/:messageId` | <span class="method-delete">`DELETE`</span> | Supprimer un message d'une conversation | ✅ Oui | - | `conversationId`, `messageId` | Supprime le message spécifié de la conversation |
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/messages/:conversationId/:page` | <span class="method-get">`GET`</span> | Get messages from a conversation | ✅ Yes | Returns message list with pagination |
 
-**Paramètres d'URL :**
-- `conversationId` **(obligatoire)** - ID de la conversation
-- `messageId` **(obligatoire)** - ID du message à supprimer
+**URL Example:**
+```
+GET https://instance.tld/api/messages/conv-123/1
+```
 
-## Permissions et restrictions
+**URL Parameters:**
+- `conversationId` **(required)** - Conversation ID
+- `page` **(required)** - Page number for pagination
+
+**Pagination System:**
+- Pagination starts at page 1
+- Each page contains a fixed number of messages (defined by server)
+- Messages are sorted from newest to oldest
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "conversationId": "conv-123",
+  "page": 1,
+  "totalPages": 5,
+  "messages": [
+    {
+      "messageId": "msg-789",
+      "content": "Hello, how are you?",
+      "author": "@user1@instance.tld",
+      "timestamp": "2025-08-09T12:00:00Z",
+      "edited": false
+    },
+    {
+      "messageId": "msg-788",
+      "content": "Good morning!",
+      "author": "@user2@instance.tld",
+      "timestamp": "2025-08-09T11:58:00Z",
+      "edited": false
+    }
+  ]
+}
+```
+
+### Edit Message (Update)
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/messages/edit/:conversationId/:messageId` | <span class="method-put">`PUT`</span> | Edit a message in a conversation | ✅ Yes | Edits the specified message |
+
+**URL Example:**
+```
+PUT https://instance.tld/api/messages/edit/conv-123/msg-789
+```
+
+**URL Parameters:**
+- `conversationId` **(required)** - Conversation ID
+- `messageId` **(required)** - Message ID to edit
+
+**Request Body:**
+```json
+{
+  "content": "Edited message content"
+}
+```
+
+**Required Parameters:**
+- `content` **(required)** - New message content
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "messageId": "msg-789",
+  "conversationId": "conv-123",
+  "content": "Edited message content",
+  "author": "@username@instance.tld",
+  "timestamp": "2025-08-09T12:00:00Z",
+  "editedAt": "2025-08-09T12:05:00Z",
+  "edited": true
+}
+```
+
+### Delete Message (Delete)
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/messages/delete/:conversationId/:messageId` | <span class="method-delete">`DELETE`</span> | Delete a message from a conversation | ✅ Yes | Deletes the specified message from the conversation |
+
+**URL Example:**
+```
+DELETE https://instance.tld/api/messages/delete/conv-123/msg-789
+```
+
+**URL Parameters:**
+- `conversationId` **(required)** - Conversation ID
+- `messageId` **(required)** - Message ID to delete
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "message": "Message deleted successfully",
+  "messageId": "msg-789",
+  "conversationId": "conv-123"
+}
+```
+
+## Permissions and Restrictions
 
 !!! warning "Permissions"
-    - **Modification** : Seul l'auteur du message peut le modifier
-    - **Suppression** : Seul l'auteur du message ou un administrateur de la conversation peut supprimer un message
-    - **Lecture** : Seuls les membres de la conversation peuvent lire les messages
+    - **Edit** : Only the message author can edit it
+    - **Delete** : Only the message author or a conversation administrator can delete a message
+    - **Read** : Only conversation members can read messages
 
 !!! info "Limitations"
-    - Les messages peuvent avoir une taille maximale (définie par le serveur)
-    - Il peut y avoir une limite de temps pour modifier ou supprimer un message
-    - Certains types de contenu peuvent être restreints (liens, médias, etc.)
+    - Messages may have a maximum size (defined by server)
+    - There may be a time limit for editing or deleting messages
+    - Certain content types may be restricted (links, media, etc.)
 
-## Opérations CRUD
+## CRUD Operations
 
-Cette section suit le modèle CRUD standard :
+This section follows the standard CRUD model:
 
 - **C**reate → `POST /messages/send/:conversationId`
 - **R**ead → `GET /messages/:conversationId/:page`

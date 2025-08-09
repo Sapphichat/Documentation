@@ -44,58 +44,11 @@
     font-size: 0.85em;
 }
 
-/* Enhanced Tables for API Documentation */
-.api-table, table {
-    border-collapse: collapse;
-    width: 100%;
-    margin: 1.5rem 0;
-}
-
-.api-table th, table th {
-    background-color: var(--md-primary-fg-color);
-    color: var(--md-primary-bg-color);
-    padding: 12px;
-    text-align: left;
-    font-weight: 600;
-}
-
-.api-table td, table td {
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--md-default-fg-color--lightest);
-    vertical-align: top;
-}
-
-.api-table tr:hover, table tr:hover {
-    background-color: var(--md-accent-fg-color--transparent);
-}
-
-/* Style code elements in tables (endpoints) */
-table td code, table th code {
-    background-color: var(--md-code-bg-color);
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 0.9em;
-    font-family: 'Roboto Mono', monospace;
-}
-
-/* Auth status styling */
-table td:nth-child(4) {
+.method-any code, .method-any {
+    background-color: #c907ff !important;
+    color: white !important;
+    padding: 4px 8px;
+    border-radius: 4px;
     font-weight: bold;
-}
-
-/* Required parameters in bold */
-strong {
-    color: var(--md-accent-fg-color);
-}
-
-/* Optional parameters in italic */
-em {
-    color: var(--md-default-fg-color--light);
-}
-
-/* Section dividers */
-.section-divider {
-    margin: 2rem 0;
-    border-top: 2px solid var(--md-primary-fg-color);
-    opacity: 0.3;
+    font-size: 0.85em;
 }

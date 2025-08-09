@@ -4,6 +4,13 @@
 
 Sapphichat is a modern communication platform (that doesn't exist yet...) designed for secure and efficient messaging.
 
+!!! danger "🚨 EU Chat Control Law"
+    **Are you scared by the new EU law about Chat Control? We are too. That's why we have started this project.**
+    
+    We sincerely believe that **privacy is a fundamental human right**, and we are committed to building a platform that respects and protects user privacy.
+    
+    **We will do everything we can to ensure that Sapphichat is a safe and secure communication tool for everyone. That's is a promise.**
+
 !!! warning "Sapphichat is in work in process, we need your help!"
     This documentation is a work in progress. If you find any issues or have suggestions, please contribute to the project on GitHub.
     This project is relatively new, and we are looking for contributors to help us improve it.

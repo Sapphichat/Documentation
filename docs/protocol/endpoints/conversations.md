@@ -1,56 +1,139 @@
-# Gestion des Conversations
+# Conversations Management
 
-Les endpoints de conversation permettent de créer, gérer et quitter des conversations individuelles ou de groupe.
+Conversation endpoints allow creating, managing, and leaving individual or group conversations.
 
-## Création de conversations
+## Creating Conversations
 
-### Conversation privée (Message Direct)
+### Private Conversation (Direct Message)
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/conversations/create/dm/:identity` | <span class="method-post">`POST`</span> | Créer une conversation de message direct | ✅ Oui | - | `identity` | Format de l'identité : @username@instance.tld |
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/conversations/create/dm/:identity` | <span class="method-post">`POST`</span> | Create a direct message conversation | ✅ Yes | Identity format: @username@instance.tld |
 
-**Paramètres d'URL :**
-- `identity` **(obligatoire)** - Identité de l'utilisateur avec qui créer la conversation
+**URL Example:**
+```
+POST https://instance.tld/api/conversations/create/dm/@user@instance.tld
+```
 
-### Conversation de groupe
+**URL Parameters:**
+- `identity` **(required)** - Identity of the user to create conversation with
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/conversations/create/group` | <span class="method-post">`POST`</span> | Créer une conversation de groupe | ✅ Oui | `name`, `description`, `members` | - | Les membres sont un tableau d'identités |
-
-**Paramètres requis :**
-- `name` **(obligatoire)** - Nom du groupe
-- `description` *(optionnel)* - Description du groupe
-- `members` *(optionnel)* - Tableau des identités des membres à ajouter
-
-**Exemple de body :**
+**Response Example:**
 ```json
 {
-  "name": "Mon Groupe",
-  "description": "Description du groupe",
-  "members": ["@user1@instance.tld", "@user2@instance.tld"]
+  "success": true,
+  "data": {
+    "conversationId": "123e4567-e89b-12d3-a456-426614174000",
+    "type": "dm",
+    "participants": [
+      "@user1@instance.tld",
+      "@user2@instance.tld"
+    ],
+    "createdAt": "2025-08-09T12:00:00Z"
+  }
 }
 ```
 
-## Gestion des conversations
+### Group Conversation
 
-### Liste des conversations
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/conversations/create/group` | <span class="method-post">`POST`</span> | Create a group conversation | ✅ Yes | Members is an array of identities |
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/conversations` | <span class="method-get">`GET`</span> | Obtenir la liste des conversations | ✅ Oui | - | - | Retourne la liste des IDs de conversation |
+**URL Example:**
+```
+POST https://instance.tld/api/conversations/create/group
+```
 
-### Quitter une conversation
+**Request Body:**
+```json
+{
+  "name": "My Group", // Mandatory
+  "description": "Group description", // Mandatory
+  "members": ["@user1@instance.tld", "@user2@instance.tld"] // Mandatory
+}
+```
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/conversations/leave/:conversationId` | <span class="method-post">`POST`</span> | Quitter une conversation | ✅ Oui | - | `conversationId` | Quitte la conversation spécifiée |
+**Response Example:**
+```json
+{
+  "success": true,
+  "conversationId": "conv-456",
+  "type": "group",
+  "name": "My Group",
+  "description": "Group description",
+  "members": [
+    "@creator@instance.tld",
+    "@user1@instance.tld",
+    "@user2@instance.tld"
+  ],
+  "createdAt": "2025-08-09T12:00:00Z"
+}
+```
 
-**Paramètres d'URL :**
-- `conversationId` **(obligatoire)** - ID de la conversation à quitter
+## Managing Conversations
 
-!!! info "Note"
-    - Pour les conversations de groupe, quitter la conversation vous retire de la liste des membres
-    - Pour les messages directs, cela masque la conversation de votre liste
-    - Si vous êtes le dernier membre d'un groupe, la conversation sera supprimée
+### List Conversations
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/conversations` | <span class="method-get">`GET`</span> | Get list of conversations | ✅ Yes | Returns list of conversation IDs |
+
+**URL Example:**
+```
+GET https://instance.tld/api/conversations
+```
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "conversations": [
+      {
+        "conversationId": "123e4567-e89b-12d3-a456-426614174000",
+        "type": "dm",
+        "participants": ["@user1@instance.tld", "@user2@instance.tld"],
+        "lastActivity": "2025-08-09T11:30:00Z"
+      },
+      {
+        "conversationId": "123e4567-e89b-12d3-a456-426614174000",
+        "type": "group",
+        "name": "My Group",
+        "memberCount": 5,
+        "lastActivity": "2025-08-09T10:15:00Z"
+      }
+    ]
+  }
+}
+```
+
+### Leave Conversation
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/conversations/leave/:conversationId` | <span class="method-post">`POST`</span> | Leave a conversation | ✅ Yes | Leaves the specified conversation |
+
+**URL Example:**
+```
+POST https://instance.tld/api/conversations/leave/123e4567-e89b-12d3-a456-426614174000
+```
+
+**URL Parameters:**
+- `conversationId` **(required)** - ID of the conversation to leave
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "message": "Successfully left conversation",
+    "conversationId": "123e4567-e89b-12d3-a456-426614174000"
+  }
+}
+```
+
+!!! info
+    - For group conversations, leaving removes you from the member list
+    - For direct messages, this hides the conversation from your list
+    - If you are the last member of a group, the conversation will be deleted

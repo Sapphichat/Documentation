@@ -1,30 +1,56 @@
 # Base API Endpoint
 
-L'endpoint de base fournit des informations essentielles sur l'API et les protocoles disponibles.
+The base endpoint provides essential information about the API and available protocols.
 
-## Endpoint racine
+## Root Endpoint
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/` | <span class="method-get">`GET`</span> | Endpoint de base fournissant les informations de l'API et les protocoles disponibles | ❌ Non | - | - | Retourne la version de l'API et les protocoles implémentés |
+| Endpoint | Method | Description | Auth Required |
+|----------|--------|-------------|---------------|
+| `/` | <span class="method-get">`GET`</span> | Free endpoint | ❌ No |
 
-## Réponse
+**URL Example:**
+```
+GET https://instance.tld/
+```
 
-L'endpoint retourne les informations suivantes :
+Returns for example a static HTML page to test API connectivity or to display a welcome message.
 
-- **Version de l'API** - Version actuelle de l'implémentation
-- **Protocoles disponibles** - Liste des protocoles supportés (ex: `sapphitalk`, `sapphitalkplus`, `sapphisocket`)
-- **Informations sur l'instance** - Métadonnées de l'instance du serveur
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/api` | <span class="method-get">`GET`</span> | Base endpoint providing API information and available protocols | ❌ No | Returns API version and implemented protocols |
 
-## Exemple de réponse
+**URL Example:**
+```
+GET https://instance.tld/api
+```
+
+## Response
+
+The endpoint returns the following information:
+
+- **API Version** - Current implementation version
+- **Available Protocols** - List of supported protocols (e.g., `sapphitalk`, `sapphitalkplus`, `sapphisocket`)
+- **Instance Information** - Server instance metadata
+
+## Response Example
 
 ```json
 {
-  "version": "0.0.1",
-  "protocols": ["sapphitalk", "sapphitalkplus", "sapphisocket"],
-  "instance": {
-    "name": "Instance SapphiTalk",
-    "description": "Une instance SapphiTalk"
+  "success": true,
+  "data": {
+    "version": "X.X.X",
+    "protocols": ["sapphitalk", "sapphitalkplus", "sapphisocket"],
+    "instance": {
+      "name": "Sapphichat Instance",
+      "description": "A Sapphichat instance"
+    },
+    "custom": {
+      "hello": "Hello community! Welcome to Sapphichat. 🏳️‍🌈",
+    }
   }
 }
 ```
+
+You can add custom messages in the "custom" key, you can use this to display a welcome message or any other information you want to provide to the user, or for a technical usage to return uptime for example.
+
+Clients must ignore the "custom" key.

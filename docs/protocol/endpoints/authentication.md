@@ -1,55 +1,180 @@
-# Endpoints d'Authentification
+# Account Endpoints
 
-Les endpoints d'authentification gèrent la création de comptes, la connexion, et la gestion des sessions utilisateur.
+Account endpoints handle account creation, login, and user session management.
 
-## Gestion des comptes
+## Account Management
 
-### Enregistrement d'un nouveau compte
+### Register New Account
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/account/register` | <span class="method-post">`POST`</span> | Enregistrer un nouveau compte utilisateur | ❌ Non | `username`, `displayName`, `password`, `tos` | - | Les conditions d'utilisation doivent être acceptées |
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/register` | <span class="method-post">`POST`</span> | Register a new user account | ❌ No | Terms of service must be accepted |
 
-**Paramètres requis :**
-- `username` **(obligatoire)** - Nom d'utilisateur unique
-- `displayName` **(obligatoire)** - Nom d'affichage de l'utilisateur
-- `password` **(obligatoire)** - Mot de passe du compte
-- `tos` **(obligatoire)** - Acceptation des conditions d'utilisation (doit être `true`)
+**URL Example:**
+```
+POST https://instance.tld/api/account/register
+```
 
-### Connexion utilisateur
+**Request Body:**
+```json
+{
+  "username": "string", // Mandatory
+  "displayName": "string", // Mandatory
+  "password": "string", // Mandatory
+  "tos": true // Mandatory
+}
+```
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/account/login` | <span class="method-post">`POST`</span> | Authentifier l'utilisateur et obtenir un token de session | ❌ Non | `username`, `password` | - | Format du nom d'utilisateur : @username@instance.tld |
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "message": "Account created successfully",
+    "userId": "user-123",
+    "identity": "@username@instance.tld"
+  }
+}
+```
 
-**Paramètres requis :**
-- `username` **(obligatoire)** - Identité complète de l'utilisateur
-- `password` **(obligatoire)** - Mot de passe du compte
+### User Login
 
-## Gestion des sessions
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/login` | <span class="method-post">`POST`</span> | Authenticate user and obtain session token | ❌ No | Username format: @username@instance.tld |
 
-### Informations du compte
+**URL Example:**
+```
+POST https://instance.tld/api/account/login
+```
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/account/me` | <span class="method-get">`GET`</span> | Obtenir les informations du compte de l'utilisateur authentifié | ✅ Oui | - | - | Retourne l'identité au format @username@instance.tld |
+**Request Body:**
+```json
+{
+  "identity": "@username@instance.tld", // Mandatory
+  "password": "string" // Mandatory
+}
+```
 
-### Déconnexion
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "token": "session-token-here",
+    "identity": "@username@instance.tld",
+    "expiresAt": "2025-08-10T12:00:00Z"
+  }
+}
+```
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/account/logout` | <span class="method-post">`POST`</span> | Déconnecter l'utilisateur authentifié | ✅ Oui | - | - | Invalide le token de session |
+This token must be provided in the `Authorization` header as a Bearer token on endpoints that require authentication. **Store this token in a safe place**.
 
-## Suppression de compte
+### Edit information of an account
 
-### Supprimer un compte utilisateur
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/me` | <span class="method-put">`PUT`</span> | Update user account information | ✅ Yes | Only updates fields provided in the request body |
 
-| Endpoint | Méthode | Description | Auth Requise | Paramètres Body | Paramètres URL | Notes |
-|----------|---------|-------------|--------------|-----------------|----------------|-------|
-| `/account/me` | <span class="method-delete">`DELETE`</span> | Supprimer le compte utilisateur | ✅ Oui | `password` | - | Suppression définitive du compte |
+**URL Example:**
+```
+PUT https://instance.tld/api/account/me
+```
 
-**Paramètres requis :**
-- `password` **(obligatoire)** - Mot de passe pour confirmer la suppression
+**Request Body:**
+```json
+{
+  "displayName": "string", // Optional
+  "password": "string" // Optional
+}
+```
 
-!!! warning "Attention"
-    La suppression d'un compte est **définitive** et **irréversible**. Toutes les données associées au compte seront perdues.
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "message": "Account information updated successfully"
+  }
+}
+```
+
+## Session Management
+
+### Account Information
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/me` | <span class="method-get">`GET`</span> | Get authenticated user account information | ✅ Yes | Returns identity in @username@instance.tld format |
+
+**URL Example:**
+```
+GET https://instance.tld/api/account/me
+```
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "identity": "@username@instance.tld",
+    "displayName": "User Display Name",
+    "accountCreated": "2025-01-01T00:00:00Z",
+    "isVerified": true
+  }
+}
+```
+
+### Logout
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/logout` | <span class="method-post">`POST`</span> | Logout authenticated user | ✅ Yes | Invalidates session token |
+
+**URL Example:**
+```
+POST https://instance.tld/api/account/logout
+```
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "message": "Successfully logged out"
+  }
+}
+```
+
+## Account Deletion
+
+### Delete User Account
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/me` | <span class="method-delete">`DELETE`</span> | Delete user account | ✅ Yes | Permanent account deletion |
+
+**URL Example:**
+```
+DELETE https://instance.tld/api/account/me
+```
+
+**Request Body:**
+```json
+{
+  "password": "string" // Mandatory
+}
+```
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "message": "Account deleted successfully"
+  }
+}
+```
+
+!!! warning "Warning"
+    Account deletion is **permanent** and **irreversible**. All associated data will be lost.

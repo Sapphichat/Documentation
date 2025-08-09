@@ -1,47 +1,82 @@
 # SapphiTalk REST API Endpoints
 
-Cette section décrit les endpoints utilisés dans le protocole SapphiTalk pour la communication entre clients et serveurs.
+This section describes the endpoints used in the SapphiTalk protocol for communication between clients and servers.
 
-!!! info "Version du Protocole"
-    Le protocole SapphiTalk/SapphiTalk+ est actuellement en version **0.0.1**. Si une mise à jour est publiée, il sera nécessaire de mettre à jour le client.
+!!! info "Protocol Version"
+    The SapphiTalk/SapphiTalk+ protocol is currently in version **0.0.1**. If an update is published, it will be necessary to update your implementation.
 
-## Structure de l'URL API
+## API URL Structure
 
-L'URL de l'API est structurée comme suit :
+The API URL is structured as follows:
 
 ```
 https://<instance>/api/<endpoint>
 ```
 
-Par exemple, pour enregistrer un nouveau compte, vous utiliseriez l'endpoint :
+For example, to register a new account, you would use the endpoint:
 
 ```
 https://<instance>/api/account/register
 ```
 
-## Organisation des Endpoints
+## Endpoint Organization
 
-Les endpoints sont organisés par catégories :
+Endpoints are organized by categories:
 
-- **[Base API](base.md)** - Endpoint racine fournissant les informations de l'API
-- **[Authentification](authentication.md)** - Gestion des comptes utilisateurs et sessions
-- **[Conversations](conversations.md)** - Création et gestion des conversations
-- **[Messages](messages.md)** - Envoi et gestion des messages
+- **[Base API](base.md)** - Root endpoint providing API information
+- **[Authentication](authentication.md)** - User account and session management
+- **[Conversations](conversations.md)** - Conversation creation and management
+- **[Messages](messages.md)** - Message sending and management
 
 ## Conventions
 
-### Méthodes HTTP
+### ID
 
-- <span class="method-get">`GET`</span> - Récupération de données
-- <span class="method-post">`POST`</span> - Création de nouvelles ressources
-- <span class="method-put">`PUT`</span> - Mise à jour de ressources existantes
-- <span class="method-delete">`DELETE`</span> - Suppression de ressources
+IDs in the API must be **UUIDv4**, they must be unique across the entire system.
 
-### Authentification
+!!! warning
+    For federation, your instance must verify if the received ID is an **UUIDv4**.
 
-- ✅ **Authentification requise** - L'endpoint nécessite un token de session valide
-- ❌ **Pas d'authentification** - L'endpoint est accessible sans authentification
+### HTTP Methods
 
-### Format des identités
+- <span class="method-get">`GET`</span> - Data retrieval
+- <span class="method-post">`POST`</span> - Creating new resources
+- <span class="method-put">`PUT`</span> - Updating existing resources
+- <span class="method-delete">`DELETE`</span> - Deleting resources
 
-Les identités utilisateur suivent le format : `@username@instance.tld`
+### Authentication
+
+- ✅ **Authentication required** - Endpoint requires a valid session token
+- ❌ **No authentication** - Endpoint is accessible without authentication
+
+## Response Format
+
+All API responses follow a consistent JSON format:
+Identity Format
+```json
+{
+  "success": boolean,
+  "message": "string (optional)",
+  "data": "object (optional)",
+  "error": "string (optional, only when success is false)"
+}
+```
+
+### Success Response
+```json
+{
+  "success": true,
+  "data": {
+    // Response data here
+  }
+}
+```
+
+### Error Response
+```json
+{
+  "success": false,
+  "error": "Error message",
+  "code": "ERROR_CODE"
+}
+```
