@@ -35,7 +35,7 @@ Endpoints are organized by categories:
 IDs in the API must be **UUIDv4** and unique across the entire system.
 
 !!! warning
-  For federation, your instance must verify that any received ID is a valid **UUIDv4**.
+    For federation, your instance must verify that any received ID is a valid **UUIDv4**.
 
 ### HTTP Methods
 

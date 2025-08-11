@@ -70,6 +70,36 @@ POST https://instance.tld/api/account/login
 
 This token must be provided in the `Authorization` header as a Bearer token on endpoints that require authentication. **Store this token in a safe place**.
 
+### Get account information
+
+| Endpoint | Method | Description | Auth Required | Notes |
+|----------|--------|-------------|---------------|-------|
+| `/account/me` | <span class="method-get">`GET`</span> | Get authenticated user account information | ✅ Yes | Returns identity in @username@instance.tld format |
+
+**URL Example:**
+```
+GET https://instance.tld/api/account/me
+```
+
+**Response Example:**
+```json
+{
+  "success": true,
+  "data": {
+    "identity": "@username@instance.tld",
+    "displayName": "User Display Name",
+    "accountCreated": "2025-01-01T00:00:00Z",
+    "createdAt": "2025-01-01T00:00:00Z",
+    "updatedAt": "2025-01-01T00:00:00Z",
+    "isTwoFaEnabled": true,
+    "roleId": "USER",
+    "isBanned": false,
+    "banReason": null,
+    "lastLoginAt": "2025-01-01T00:00:00Z"
+  }
+}
+```
+
 ### Edit Account Information
 
 | Endpoint | Method | Description | Auth Required | Notes |
