@@ -1032,8 +1032,8 @@
 <p>This section describes the endpoints used in the SapphiTalk protocol for communication between clients and servers.</p>
 <div class="admonition info">
 <p class="admonition-title">Protocol Version</p>
-<p>The SapphiTalk/SapphiTalk+ protocol is currently in version <strong>0.0.1</strong>. If an update is published, it will be necessary to update your implementation.</p>
 </div>
+<p>The SapphiTalk/SapphiTalk+ protocol is currently at version <strong>0.0.1</strong>. If an update is published, you’ll need to update your implementation.</p>
 <h2 id="api-url-structure">API URL Structure</h2>
 <p>The API URL is structured as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>https://&lt;instance&gt;/api/&lt;endpoint&gt;
@@ -1051,11 +1051,11 @@
 </ul>
 <h2 id="conventions">Conventions</h2>
 <h3 id="id">ID</h3>
-<p>IDs in the API must be <strong>UUIDv4</strong>, they must be unique across the entire system.</p>
+<p>IDs in the API must be <strong>UUIDv4</strong> and unique across the entire system.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>For federation, your instance must verify if the received ID is an <strong>UUIDv4</strong>.</p>
 </div>
+<p>For federation, your instance must verify that any received ID is a valid <strong>UUIDv4</strong>.</p>
 <h3 id="http-methods">HTTP Methods</h3>
 <ul>
 <li><span class="method-get"><code>GET</code></span> - Data retrieval</li>
@@ -1070,7 +1070,6 @@
 </ul>
 <h2 id="response-format">Response Format</h2>
 <p>All API responses follow a consistent JSON format:
-Identity Format
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">boolea</span><span class="kc">n</span><span class="p">,</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string (optional)&quot;</span><span class="p">,</span>
