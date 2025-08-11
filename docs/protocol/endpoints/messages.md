@@ -1,6 +1,6 @@
 # Messages Management
 
-Message endpoints allow performing all CRUD (Create, Read, Update, Delete) operations on messages within conversations.
+Message endpoints allow you to perform all CRUD (Create, Read, Update, Delete) operations on messages within conversations.
 
 ## Message Operations
 
@@ -26,7 +26,7 @@ POST https://instance.tld/api/messages/send/conv-123
 ```
 
 **Required Parameters:**
-- `content` **(required)** - Message content to send
+- `content` **(required)** - Message content
 
 **Response Example:**
 ```json

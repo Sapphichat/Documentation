@@ -7,7 +7,7 @@ This section describes the technical specifications and communication protocols 
 ### Overview
 Sapphichat is a very simple and understandable protocol designed for secure and efficient messaging.
 
-SapphiTalk is the base of the protocol, it implements the core features of Sapphichat, while SapphiTalk+ extends it with additional functionalities like Federation.
+SapphiTalk is the base of the protocol. It implements the core features of Sapphichat, while SapphiTalk+ extends it with additional functionalities like federation.
 
 | Feature                | SapphiTalk | SapphiTalk+ |
 |------------------------|------------|-------------|
@@ -18,9 +18,9 @@ SapphiTalk is the base of the protocol, it implements the core features of Sapph
 | Socket.IO Support      | ✅         | ✅          |
 | Federation Support     | ❌         | ✅          |
 
-We have choosen to make a difference between SapphiTalk and SapphiTalk+ to allow for a simpler implementation of the core features while providing an option for advanced users to utilize federation capabilities.
+We have chosen to make a distinction between SapphiTalk and SapphiTalk+ to allow for a simpler implementation of the core features while providing an option for advanced users to use federation capabilities.
 
-Not every users needs federation, and SapphiTalk is designed to be easy to deploy and use without it.
+Not every user needs federation, and SapphiTalk is designed to be easy to deploy and use without it.
 
 ### Key Features
 
@@ -36,7 +36,7 @@ Not every users needs federation, and SapphiTalk is designed to be easy to deplo
 
 ### User identification
 
-- Users are identified by their unique usernames, which are case-sensitive. Usernames can contain only letters, in minuscule only, and must be at least 1 characters long and max 16 characters long. Usernames are not allowed to contain spaces or special characters.
+- Users are identified by their unique usernames, which are case-sensitive. Usernames can contain only lowercase letters and must be at least 1 character and at most 16 characters long. Usernames are not allowed to contain spaces or special characters.
 - An account can have a display name, which is used to identify the user in the chat. The display name can be changed at any time and is not required to be unique. It can contain letters, numbers, spaces, and special characters.
 - Passwords are mandatory, and must be securely stored and hashed on the server side. Passwords must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.
 
@@ -64,4 +64,4 @@ The order of the usernames in the DM identifier does not matter, as it is a dire
 
 ### API Documentation
 
-Continue reading on [endpoints](./endpoints/index.md) for detailed API endpoints and usage examples.
+Continue reading the [endpoints](./endpoints/index.md) section for detailed API endpoints and usage examples.

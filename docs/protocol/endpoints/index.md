@@ -3,7 +3,7 @@
 This section describes the endpoints used in the SapphiTalk protocol for communication between clients and servers.
 
 !!! info "Protocol Version"
-    The SapphiTalk/SapphiTalk+ protocol is currently in version **0.0.1**. If an update is published, it will be necessary to update your implementation.
+  The SapphiTalk/SapphiTalk+ protocol is currently at version **0.0.1**. If an update is published, you’ll need to update your implementation.
 
 ## API URL Structure
 
@@ -32,10 +32,10 @@ Endpoints are organized by categories:
 
 ### ID
 
-IDs in the API must be **UUIDv4**, they must be unique across the entire system.
+IDs in the API must be **UUIDv4** and unique across the entire system.
 
 !!! warning
-    For federation, your instance must verify if the received ID is an **UUIDv4**.
+  For federation, your instance must verify that any received ID is a valid **UUIDv4**.
 
 ### HTTP Methods
 
@@ -52,7 +52,6 @@ IDs in the API must be **UUIDv4**, they must be unique across the entire system.
 ## Response Format
 
 All API responses follow a consistent JSON format:
-Identity Format
 ```json
 {
   "success": boolean,

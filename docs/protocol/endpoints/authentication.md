@@ -70,7 +70,7 @@ POST https://instance.tld/api/account/login
 
 This token must be provided in the `Authorization` header as a Bearer token on endpoints that require authentication. **Store this token in a safe place**.
 
-### Edit information of an account
+### Edit Account Information
 
 | Endpoint | Method | Description | Auth Required | Notes |
 |----------|--------|-------------|---------------|-------|
@@ -129,7 +129,7 @@ GET https://instance.tld/api/account/me
 
 | Endpoint | Method | Description | Auth Required | Notes |
 |----------|--------|-------------|---------------|-------|
-| `/account/logout` | <span class="method-post">`POST`</span> | Logout authenticated user | ✅ Yes | Invalidates session token |
+| `/account/logout` | <span class="method-post">`POST`</span> | Log out authenticated user | ✅ Yes | Invalidates session token |
 
 **URL Example:**
 ```

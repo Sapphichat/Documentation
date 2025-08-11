@@ -13,7 +13,7 @@ The base endpoint provides essential information about the API and available pro
 GET https://instance.tld/
 ```
 
-Returns for example a static HTML page to test API connectivity or to display a welcome message.
+Returns, for example, a static HTML page to test API connectivity or to display a welcome message.
 
 | Endpoint | Method | Description | Auth Required | Notes |
 |----------|--------|-------------|---------------|-------|
@@ -51,6 +51,6 @@ The endpoint returns the following information:
 }
 ```
 
-You can add custom messages in the "custom" key, you can use this to display a welcome message or any other information you want to provide to the user, or for a technical usage to return uptime for example.
+You can add custom messages in the "custom" key. Use this to display a welcome message or any other information you want to provide to the user, or for technical purposes (for example returning uptime).
 
-Clients must ignore the "custom" key.
+Clients must ignore the "custom" key if they do not recognize its contents.

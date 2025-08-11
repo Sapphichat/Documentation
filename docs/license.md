@@ -8,26 +8,26 @@ Sapphichat is licensed under the GNU General Public License v3.0 (GPL-3.0).
 
 GPL v3 guarantees that:
 
-- ✅ **Freedom to use** : You can use this software for any purpose
-- ✅ **Freedom to study** : You can study and modify the source code
-- ✅ **Freedom to redistribute** : You can redistribute copies
-- ✅ **Freedom to improve** : You can distribute your modifications
+- ✅ **Freedom to use**: You can use this software for any purpose
+- ✅ **Freedom to study**: You can study and modify the source code
+- ✅ **Freedom to redistribute**: You can redistribute copies
+- ✅ **Freedom to improve**: You can distribute your modifications
 
 ### Important conditions
 
-- 📋 **Copyleft** : Any derivative work must also be under GPL v3
-- 📋 **Source code** : Source code must be available
-- 📋 **Same license** : Modifications must use the same license
-- 📋 **Attribution** : You must retain copyright notices
+- 📋 **Copyleft**: Any derivative work must also be under GPL v3
+- 📋 **Source code**: Source code must be available
+- 📋 **Same license**: Modifications must use the same license
+- 📋 **Attribution**: You must retain copyright notices
 
 ### Why GPL v3?
 
 We chose GPL v3 to:
 
-1. **Protect the community** : Ensure improvements remain open
-2. **Prevent appropriation** : Prevent closed commercial use
-3. **Encourage contribution** : Incentivize sharing improvements
-4. **Maintain openness** : Guarantee the project remains open source
+1. **Protect the community**: Ensure improvements remain open
+2. **Prevent appropriation**: Discourage closed, proprietary use
+3. **Encourage contribution**: Incentivize sharing improvements
+4. **Maintain openness**: Guarantee the project remains open source
 
 ### Full license text
 

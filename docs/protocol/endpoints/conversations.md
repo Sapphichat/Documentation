@@ -1,6 +1,6 @@
 # Conversations Management
 
-Conversation endpoints allow creating, managing, and leaving individual or group conversations.
+Conversation endpoints allow you to create, manage, and leave individual or group conversations.
 
 ## Creating Conversations
 
@@ -16,7 +16,7 @@ POST https://instance.tld/api/conversations/create/dm/@user@instance.tld
 ```
 
 **URL Parameters:**
-- `identity` **(required)** - Identity of the user to create conversation with
+- `identity` **(required)** - Identity of the user with whom to create the conversation
 
 **Response Example:**
 ```json

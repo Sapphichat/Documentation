@@ -64,7 +64,7 @@ Sapphichat is open source software:
 
 ## Contact Information
 
-For questions about this privacy policy or Sapphichat's development please [this page](../contact.md).
+For questions about this privacy policy or Sapphichat's development, please see [this page](../contact.md).
 
 For data-related inquiries about your specific account, please contact your instance administrator directly.
 
